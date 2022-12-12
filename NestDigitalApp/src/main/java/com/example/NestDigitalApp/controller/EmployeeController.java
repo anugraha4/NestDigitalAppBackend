@@ -22,4 +22,8 @@ public class EmployeeController {
     @PostMapping("/search")
     public String EmpSearch()
     {return "search done";}
+
+    @PostMapping("/delete")
+    public String EmpDelete()
+    {return "delete done";}
 }
