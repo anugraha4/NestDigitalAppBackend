@@ -22,9 +22,19 @@ public class EmployeeController {
 
 
     @PostMapping(path="/login",consumes = "application/json",produces = "application/json")
-    public String login(@RequestBody Employee e)
+    public HashMap<String, String> login(@RequestBody Employee e)
    {
-        return "login page";}
+       System.out.println(e.getUsername());
+       List<Employee> result=(List<Employee>) dao.employeeLogin(e.getUsername(), e.getPassword());
+       HashMap<String,String> map = new HashMap<>();
+       if(result.size()==0){
+           map.put("status","failed");
+       }
+       else {
+           map.put("status","success");
+       }
+        return map;}
+
 
     @PostMapping(path="/add",consumes = "application/json",produces = "application/json")
     public HashMap<String,String> EmpAdd(@RequestBody Employee e) {
@@ -35,6 +45,7 @@ public class EmployeeController {
         System.out.println(e.getPhnNo().toString());
         System.out.println(e.getMail().toString());
         System.out.println(e.getUsername().toString());
+        System.out.println(e.getPassword().toString());
         dao.save(e);
         HashMap<String, String> map = new HashMap<>();
         map.put("status", "success");
@@ -63,3 +74,5 @@ public class EmployeeController {
         return (List<Employee>) dao.viewEmployee(e.getId());
     }
 }
+
+
