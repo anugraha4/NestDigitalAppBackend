@@ -6,12 +6,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class EmployeeController {
-    @GetMapping
+    @GetMapping("/")
     public String MainPage()
     {return "Welcome to main page";}
 
 
-    @PostMapping
+    @PostMapping("/login")
     public String login()
     {return "login page";}
+
+    @PostMapping("/add")
+    public String EmpAdd()
+    {return "Employee Added successfully";}
+
+
 }
