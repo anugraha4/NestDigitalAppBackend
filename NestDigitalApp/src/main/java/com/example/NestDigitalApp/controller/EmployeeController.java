@@ -19,5 +19,7 @@ public class EmployeeController {
     public String EmpAdd()
     {return "Employee Added successfully";}
 
-
+    @PostMapping("/search")
+    public String EmpSearch()
+    {return "search done";}
 }
