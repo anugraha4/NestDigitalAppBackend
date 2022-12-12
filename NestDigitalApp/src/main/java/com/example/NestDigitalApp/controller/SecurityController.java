@@ -25,6 +25,12 @@ public class SecurityController {
         return "view all security";
     }
 
+    @PostMapping("/secsearch")
+    public String SecuritySearch()
+    {
+        return "security search done";
+    }
+
 
 
 }
