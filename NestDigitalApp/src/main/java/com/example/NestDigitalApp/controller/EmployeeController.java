@@ -68,11 +68,15 @@ public class EmployeeController {
         map.put("status", "success");
         return map;
     }
-    @GetMapping(path = "/viewprofile",consumes = "application/json",produces = "application/json")
+    @PostMapping(path = "/viewprofile",consumes = "application/json",produces = "application/json")
     public List<Employee> EmpViewProf(@RequestBody Employee e)
     {
         return (List<Employee>) dao.viewEmployee(e.getId());
     }
+
+    @GetMapping("/viewAll")
+    public List<Employee>viewAll(){return (List<Employee>) dao.findAll();}
+
 }
 
 
