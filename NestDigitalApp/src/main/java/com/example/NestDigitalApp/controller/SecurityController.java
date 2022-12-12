@@ -31,6 +31,12 @@ public class SecurityController {
         return "security search done";
     }
 
+    @PostMapping("/secdelete")
+    public String SecurityDelete()
+    {
+        return "deleted successfully";
+    }
+
 
 
 }
