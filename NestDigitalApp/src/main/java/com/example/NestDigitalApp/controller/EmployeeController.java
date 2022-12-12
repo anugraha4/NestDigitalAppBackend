@@ -26,4 +26,8 @@ public class EmployeeController {
     @PostMapping("/delete")
     public String EmpDelete()
     {return "delete done";}
+
+    @GetMapping("/viewprofile")
+    public String EmpViewProf()
+    {return " Profile";}
 }
